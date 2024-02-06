@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login V5</title>
+    <title>Login V15</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -33,64 +33,63 @@
 <body>
 
     <div class="limiter">
-        <div class="container-login100" style="background-image: url('{{ asset('authen/images/bg-01.jpg') }}');">
-            <div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-                <form class="login100-form validate-form flex-sb flex-w" method="POST"
-                    action="{{ route('password.store') }}">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-form-title"
+                    style="background-image: url({{ asset('authen/images/bg-01.jpg') }});">
+                    <span class="login100-form-title-1">
+                        Reset Password
+                    </span>
+                </div>
+
+                <form class="login100-form validate-form" method="POST" action="{{ route('password.store') }}">
                     @csrf
                     <!-- Password Reset Token -->
                     <input type="hidden" name="token" value="{{ $request->route('token') }}">
-                    <span class="login100-form-title p-b-53">
-                        Reset Password
-                    </span>
-
-                    <div class="p-t-31 p-b-9">
-                        <span class="txt1">
-                            Email
-                        </span>
-                    </div>
-                    <div class="wrap-input100 validate-input" data-validate = "Email is required">
-                        <input name="email" class="input100" type="text" value="{{ $request->email }}">
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
+                        <span class="label-input100">Email</span>
+                        <input class="input100" type="email" name="email" placeholder="Enter email"
+                           value="{{ $request->email }}" >
                         <span class="focus-input100"></span>
                     </div>
-                    <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
-
-                    <div class="p-t-13 p-b-9">
-                        <span class="txt1">
-                            Password
-                        </span>
+                    <div class="mt-3">
+                        <x-input-error :messages="$errors->get('email')" class="mt-2 text-danger" />
                     </div>
-                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                        <input class="input100" type="password" name="password">
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+                        <span class="label-input100">Password</span>
+                        <input class="input100" type="password" name="password" placeholder="Enter password">
                         <span class="focus-input100"></span>
                     </div>
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
-
-                    <div class="p-t-13 p-b-9">
-                        <span class="txt1">
-                            Password Confirm
-                        </span>
+                    <div class="mt-3">
+                        <x-input-error :messages="$errors->get('password')" class="mt-2 text-danger" />
                     </div>
-                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                        <input class="input100" type="password" name="password_confirmation">
+
+
+
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Confirm Password is required">
+                        <span class="label-input100">Comfirm Password</span>
+                        <input class="input100" type="password" name="password_confirmation"
+                            placeholder="Enter Confirm Password">
                         <span class="focus-input100"></span>
                     </div>
-                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                    <div class="mt-3">
+                        <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-danger" />
+                    </div>
 
-                    <div class="container-login100-form-btn m-t-17">
+
+
+                    <div class="container-login100-form-btn">
                         <button class="login100-form-btn">
                             Reset Password
                         </button>
                     </div>
 
-
                 </form>
+
             </div>
         </div>
     </div>
-
-
-    <div id="dropDownSelect1"></div>
 
     <!--===============================================================================================-->
     <script src="{{ asset('authen/vendor/jquery/jquery-3.2.1.min.js') }}"></script>

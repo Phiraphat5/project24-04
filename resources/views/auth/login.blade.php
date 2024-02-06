@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V5</title>
+	<title>Login V15</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -30,70 +30,58 @@
 <body>
 
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('authen/images/bg-01.jpg');">
-			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33">
-				<form class="login100-form validate-form flex-sb flex-w" method="POST" action="{{ route('login') }}">
-                    @csrf
-					<span class="login100-form-title p-b-53">
-						Sign In With
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({{ asset('authen/images/bg-01.jpg')}});">
+					<span class="login100-form-title-1">
+						Sign In
 					</span>
+				</div>
 
-
-
-					<div class="p-t-31 p-b-9">
-						<span class="txt1">
-							Username
-						</span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input name="username" class="input100" type="text" >
+				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="username" placeholder="Enter username">
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="p-t-13 p-b-9">
-						<span class="txt1">
-							Password
-						</span>
-
-						<a href="{{ route('password.request') }}" class="txt2 bo1 m-l-5">
-							Forgot?
-						</a>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" >
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="password" placeholder="Enter password">
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="container-login100-form-btn m-t-17">
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div>
+
+                        <div>
+                            <a href="{{ route('register') }}" class="text1">Go to Register</a>
+                        </div>
+
+						<div>
+							<a href="{{ route('password.request') }}" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Sign In
+							Login
 						</button>
 					</div>
 
-					<div class="w-full text-center p-t-55">
-						<span class="txt2">
-							Not a member?
-						</span>
-
-						<a href="{{ route('register') }}" class="txt2 bo1">
-							Sign up now
-						</a>
-						<div class="w-full text-center p-t-55">
-							<span class="txt2">
-								Go To
-							</span>
-
-							<a href="{{ url('/') }}" class="txt2 bo1">
-								Home Page
-							</a>
-					</div>
 				</form>
+
 			</div>
 		</div>
 	</div>
-
-
-	<div id="dropDownSelect1"></div>
 
 <!--===============================================================================================-->
 	<script src="{{ asset('authen/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
